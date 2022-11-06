@@ -22,22 +22,27 @@ public:
 	//Points
 	Point create_point();
 	void append_point();
+	void remove_point();
 	void draw_point();
 	void print_points_list();
 	//Lines
 	void append_line();
+	void remove_line();
 	void draw_line();
 	void print_lines_list();
 	//Ellipses
 	void append_ellipse();
+	void remove_ellipse();
 	void draw_ellipse();
 	void print_ellipses_list();
 	//Rectangles
 	void append_rectangle();
+	void remove_rectangle();
 	void draw_rectangle();
 	void print_rectangles_list();
 	//Polygons
 	void append_polygon();
+	void remove_polygon();
 	void draw_polygon();
 	void print_polygons_list();
 
@@ -47,7 +52,9 @@ int menu() {
 	std::cout << 
 		"\n=====Points========\n\n"
 		"1. Append a point\n"
-		"2. Draw a point\n\n"
+		"2. Remove a point\n"
+		"3. Delete all points\n"
+		"4. Draw a point\n\n"
 		"======Lines========\n\n"
 		"3. Append a line\n"
 		"4. Draw a line\n\n"
@@ -146,6 +153,17 @@ void Canvas::append_point()
 	Points.push_back(newPoint);
 }
 
+void Canvas::remove_point()
+{
+	int n;
+	std::cout << "Choose point which you want to draw: \n";
+	print_points_list();
+	std::cin >> n;
+	system("cls");
+	auto iter = Points.cbegin(); 
+	Points.erase(iter + n);   
+}
+
 void Canvas::draw_point()
 {
 	int n;
@@ -171,6 +189,10 @@ void Canvas::append_line()
 	Lines.push_back(newLine);
 }
 
+void Canvas::remove_line()
+{
+}
+
 void Canvas::print_lines_list()
 {
 	int i = 0;
@@ -193,6 +215,10 @@ void Canvas::append_ellipse()
 	ellipse newEllips = ellipse(a, b, painted);
 	Ellipses.push_back(newEllips);
 
+}
+
+void Canvas::remove_ellipse()
+{
 }
 
 void Canvas::draw_ellipse()
@@ -226,6 +252,10 @@ void Canvas::append_rectangle()
 	std::cin >> painted;
 	rectangle newRectangle = rectangle(a, b, painted);
 	Rectangles.push_back(newRectangle);
+}
+
+void Canvas::remove_rectangle()
+{
 }
 
 void Canvas::draw_rectangle()
@@ -264,6 +294,10 @@ void Canvas::append_polygon()
 	}
 	polygon pol = polygon(count, (&rec_points), painted);
 	Polygons.push_back(pol);
+}
+
+void Canvas::remove_polygon()
+{
 }
 
 void Canvas::draw_polygon()

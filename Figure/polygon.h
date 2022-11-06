@@ -16,8 +16,7 @@ public:
 
 inline void polygon::show_figure()
 {
-	for (int i = 0; i < n - 1; i++)
-	{
+	
 	HWND hWnd = GetConsoleWindow(); // ссылка на окно
 	HDC hdc = GetDC(hWnd);		// ссылка на контекст устройства графического вывода
 	SelectObject(hdc, GetStockObject(DC_PEN)); // выбор стандартного пера
@@ -29,13 +28,14 @@ inline void polygon::show_figure()
 	else
 		SetDCBrushColor(hdc, RGB(0, 0, 0));
 	
-	
-		MoveToEx(hdc, Points.at(n).getX(), Points.at(n).getY(), 0);
-		LineTo(hdc, Points.at(n+1).getX(), Points.at(n+1).getY());
-	
+	for (int i = 0; i < n - 1; i++)
+	{
+		MoveToEx(hdc, Points.at(i).getX(), Points.at(i).getY(), 0);
+		LineTo(hdc, Points.at(i+1).getX(), Points.at(i+1).getY());
+	}
 
 	ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
-	}
+	
 	_getch();
 	system("cls");
 
