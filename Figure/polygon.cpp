@@ -20,12 +20,13 @@ void polygon::show_figure()
 	else
 		SetDCBrushColor(hdc, RGB(0, 0, 0));
 
-	for (int i = 0; i < n - 1; i++)
+	for (int i = 0; i < n-1; i++)
 	{
 		MoveToEx(hdc, Points.at(i).getX(), Points.at(i).getY(), 0);
-		LineTo(hdc, Points.at(i + 1).getX(), Points.at(i + 1).getY());
+		LineTo(hdc, Points.at(i+1).getX(), Points.at(i+1).getY());
 	}
-
+	MoveToEx(hdc, Points.at(0).getX(), Points.at(0).getY(), 0);
+	LineTo(hdc, Points.at(n-1).getX(), Points.at(n-1).getY());
 	ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
 
 	_getch();

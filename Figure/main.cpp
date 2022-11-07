@@ -1,5 +1,5 @@
-﻿#include <iostream>
-#include <vector>
+﻿
+/*#include <vector>
 #include <Windows.h>
 #include <conio.h>
 #include "Figure.h"
@@ -7,7 +7,8 @@
 #include "Line.h"
 #include "ellipse.h"
 #include "rectangle.h"
-#include "polygon.h"
+#include "polygon.h"*/
+#include <iostream>
 #include "Canvas.h"
 
 
