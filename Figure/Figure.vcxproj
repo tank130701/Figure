@@ -127,14 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="ellipse.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="line.cpp" />
-    <ClCompile Include="point.cpp" />
+    <ClCompile Include="Line.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="polygon.cpp" />
     <ClCompile Include="rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Canvas.h" />
     <ClInclude Include="ellipse.h" />
     <ClInclude Include="Figure.h" />
     <ClInclude Include="Line.h" />

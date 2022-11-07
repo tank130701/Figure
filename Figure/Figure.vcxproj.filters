@@ -18,10 +18,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="line.cpp">
+    <ClCompile Include="Line.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="point.cpp">
+    <ClCompile Include="Point.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="rectangle.cpp">
@@ -31,6 +31,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="polygon.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,6 +54,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="polygon.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
