@@ -41,6 +41,7 @@ void rectangle::print_info()
 	top_left.print_info();
 	std::cout << "Bottom right point: ";
 	bottom_right.print_info();
+	std::cout << "Painted: " << bool(painted_over) << "\n";
 }
 
 

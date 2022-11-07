@@ -38,6 +38,7 @@ void polygon::print_info()
 	int i = 0;
 	for (std::vector<Point>::iterator it = Points.begin(); it != Points.end(); ++it)
 		std::cout << i++ << ") " << "(" << it->getX() << ";" << it->getY() << ")\n";
+	std::cout << "Painted: " << bool(painted_over) <<"\n";
 }
 
 

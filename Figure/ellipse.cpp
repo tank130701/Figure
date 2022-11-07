@@ -36,5 +36,6 @@ void ellipse::print_info()
 	a.print_info();
 	std::cout << "Bottom right point: ";
 	b.print_info();
+	std::cout << "Painted: " << bool(painted_over) << "\n";
 }
 
