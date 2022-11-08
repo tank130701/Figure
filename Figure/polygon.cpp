@@ -20,12 +20,13 @@ void polygon::show_figure()
 	else
 		SetDCBrushColor(hdc, RGB(0, 0, 0));
 
-	for (int i = 0; i < n - 1; i++)
+	/*for (int i = 0; i < n - 1; i++)
 	{
 		MoveToEx(hdc, Points.at(i).getX(), Points.at(i).getY(), 0);
 		LineTo(hdc, Points.at(i + 1).getX(), Points.at(i + 1).getY());
-	}
-
+		//MoveToEx(hdc, Points.at(i + 1).getX(), Points.at(i + 1).getY(), 0);
+	}*/
+	Polygon(hdc, arr, n);
 	ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
 
 	_getch();
@@ -35,17 +36,16 @@ void polygon::show_figure()
 
 void polygon::print_info()
 {
-	int i = 0;
-	for (std::vector<Point>::iterator it = Points.begin(); it != Points.end(); ++it)
-		std::cout << i++ << ") " << "(" << it->getX() << ";" << it->getY() << ")\n";
+	for (int i = 0; i < n; i++)
+		std::cout << "Point: " << i << ") " << "(" << arr[i].x << ":" << arr[i].y << ")\n";
 	std::cout << "Painted: " << bool(painted_over) <<"\n";
 }
 
 
 
-polygon::polygon(int n, std::vector<Point>* Points, bool painted)
+polygon::polygon(int n, POINT *arr, bool painted)
 {
 	this->n = n;
-	this->Points = (*Points);
+	this->arr = arr;
 	this->painted_over = painted;
 }
