@@ -25,6 +25,7 @@ void ellipse::show_figure()
 		SetDCBrushColor(hdc, RGB(0, 0, 0));
 
 	Ellipse(hdc, a.getX(), a.getY(), b.getX(), b.getY());
+	SelectObject(hdc, GetStockObject(NULL_BRUSH)); // отключение закраски кистью
 	ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
 	_getch();
 	system("cls");

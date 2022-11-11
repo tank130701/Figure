@@ -27,6 +27,8 @@ void polygon::show_figure()
 	}
 	MoveToEx(hdc, Points.at(0).getX(), Points.at(0).getY(), 0);
 	LineTo(hdc, Points.at(n-1).getX(), Points.at(n-1).getY());
+	SelectObject(hdc, GetStockObject(NULL_BRUSH)); // отключение закраски кистью
+	FloodFill(hdc, Points.at(n - 1).getX(), Points.at(n - 1).getY(), RGB(0, 255, 0));
 	ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
 
 	_getch();
