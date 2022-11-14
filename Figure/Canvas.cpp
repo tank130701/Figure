@@ -202,12 +202,18 @@ void Canvas::append_polygon()
 	std::cout << "Enter 1 if you want the rectangle to be filled, 0 if not: ";
 	bool painted;
 	std::cin >> painted;
+	POINT* arr = new POINT[count];
 	for (int i = 0; i < count; i++)
 	{
-		Point newPoint = create_point();
-		rec_points.push_back(newPoint);
+		int temp;
+		std::cout << "Enter X: ";
+		std::cin >> temp;
+		arr[i].x = temp;
+		std::cout << "Enter Y: ";
+		std::cin >> temp;
+		arr[i].y = temp;
 	}
-	polygon pol = polygon(count, (&rec_points), painted);
+	polygon pol = polygon(count, arr, painted);
 	Polygons.push_back(pol);
 }
 

@@ -1,5 +1,5 @@
-﻿
-/*#include <vector>
+﻿/*
+#include <vector>
 #include <Windows.h>
 #include <conio.h>
 #include "Figure.h"
