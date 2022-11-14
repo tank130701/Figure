@@ -1,6 +1,6 @@
 #pragma once
 #include "Figure.h"
-#include <Windows.h>
+#include "Windows.h"
 #include <conio.h>
 #include <vector>
 #include "Point.h"
@@ -12,7 +12,7 @@ class polygon : public Figure
 	bool painted_over;
 public:
 	polygon(int n, POINT *arr, bool painted);
-	void show_figure() override;
+	void show_figure(HDC hdc) override;
 	void print_info() override;
 };
 

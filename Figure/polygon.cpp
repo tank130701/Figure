@@ -6,11 +6,11 @@
 #include "Point.h"
 #include "Figure.h"
 
-void polygon::show_figure()
+void polygon::show_figure(HDC hdc)
 {
 
-	HWND hWnd = GetConsoleWindow(); // ссылка на окно
-	HDC hdc = GetDC(hWnd);		// ссылка на контекст устройства графического вывода
+	//HWND hWnd = GetConsoleWindow(); // ссылка на окно
+	//HDC hdc = GetDC(hWnd);		// ссылка на контекст устройства графического вывода
 	SelectObject(hdc, GetStockObject(DC_PEN)); // выбор стандартного пера
 	SelectObject(hdc, GetStockObject(DC_BRUSH)); // выбор стандартной кисти
 
@@ -27,7 +27,7 @@ void polygon::show_figure()
 		//MoveToEx(hdc, Points.at(i + 1).getX(), Points.at(i + 1).getY(), 0);
 	}*/
 	Polygon(hdc, arr, n);
-	ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
+	//ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
 
 	_getch();
 	system("cls");
@@ -36,6 +36,7 @@ void polygon::show_figure()
 
 void polygon::print_info()
 {
+	std::cout << "Polygon\n";
 	for (int i = 0; i < n; i++)
 		std::cout << "Point: " << i << ") " << "(" << arr[i].x << ":" << arr[i].y << ")\n";
 	std::cout << "Painted: " << bool(painted_over) <<"\n";

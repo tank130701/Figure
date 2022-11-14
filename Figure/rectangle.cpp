@@ -1,5 +1,5 @@
 #include <conio.h> // для _getch
-#include <windows.h>
+#include "Windows.h"
 #include <iostream>
 #include "Rectangle.h"
 #include "Point.h"
@@ -12,11 +12,11 @@ rectangle::rectangle(Point a, Point b, bool painted)
 	painted_over = painted;
 }
 
-void rectangle::show_figure()
+void rectangle::show_figure(HDC hdc)
 {
 	//rectangle* rec = new rectangle(top_left, bottom_right); //создаем объект прямоугольник
-	HWND hWnd = GetConsoleWindow(); // ссылка на окно
-	HDC hdc = GetDC(hWnd);		// ссылка на контекст устройства графического вывода
+	//HWND hWnd = GetConsoleWindow(); // ссылка на окно
+	//HDC hdc = GetDC(hWnd);		// ссылка на контекст устройства графического вывода
 	SelectObject(hdc, GetStockObject(DC_PEN)); // выбор стандартного пера
 	SelectObject(hdc, GetStockObject(DC_BRUSH)); // выбор стандартной кисти
 
@@ -29,7 +29,7 @@ void rectangle::show_figure()
 	Rectangle(hdc, top_left.getX(), top_left.getY(), bottom_right.getX(), bottom_right.getY());	// вывод прямоугольника цветом пера закрашенного цветом кисти
 	SelectObject(hdc, GetStockObject(NULL_BRUSH)); // отключение закраски кистью
 
-	ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
+	//ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
 	_getch();
 	system("cls");
 	//delete rec;
@@ -37,6 +37,7 @@ void rectangle::show_figure()
 
 void rectangle::print_info()
 {
+	std::cout << "Rectangle\n";
 	std::cout << "Top left point: ";
 	top_left.print_info();
 	std::cout << "Bottom right point: ";

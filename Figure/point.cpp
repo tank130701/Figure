@@ -14,23 +14,24 @@ int Point::getY()
 	return y;
 }
 
-void Point::show_figure()
+void Point::show_figure(HDC hdc)
 {
-	HWND hWnd = GetConsoleWindow(); // ссылка на окно
-	HDC hdc = GetDC(hWnd);		// ссылка на контекст устройства графического вывода
+	//HWND hWnd = GetConsoleWindow(); // ссылка на окно
+	//HDC hdc = GetDC(hWnd);		// ссылка на контекст устройства графического вывода
 	SelectObject(hdc, GetStockObject(DC_PEN)); // выбор стандартного пера
 	SelectObject(hdc, GetStockObject(DC_BRUSH)); // выбор стандартной кисти
 
 	SetDCPenColor(hdc, RGB(255, 0, 0)); // установка пера красного цвета
 	SetDCBrushColor(hdc, RGB(0, 255, 0)); // установка кисти зеленого цвета
 	SetPixel(hdc, x, y, 255);
-	ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
+	//ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
 	_getch();
 	system("cls");
 }
 
 void Point::print_info()
 {
+	std::cout << "Point ";
 	std::cout << "(" << getX() << ";" << getY() << ")\n";
 }
 

@@ -11,10 +11,10 @@ ellipse::ellipse(Point a, Point b, bool painted)
 	this->painted_over = painted;
 }
 
-void ellipse::show_figure()
+void ellipse::show_figure(HDC hdc)
 {
-	HWND hWnd = GetConsoleWindow(); // ссылка на окно
-	HDC hdc = GetDC(hWnd);		// ссылка на контекст устройства графического вывода
+	//HWND hWnd = GetConsoleWindow(); // ссылка на окно
+	//HDC hdc = GetDC(hWnd);		// ссылка на контекст устройства графического вывода
 	SelectObject(hdc, GetStockObject(DC_PEN)); // выбор стандартного пера
 	SelectObject(hdc, GetStockObject(DC_BRUSH)); // выбор стандартной кисти
 
@@ -26,13 +26,14 @@ void ellipse::show_figure()
 
 	Ellipse(hdc, a.getX(), a.getY(), b.getX(), b.getY());
 	SelectObject(hdc, GetStockObject(NULL_BRUSH)); // отключение закраски кистью
-	ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
+	//ReleaseDC(hWnd, hdc);		// освобождение контекста устройства вывода
 	_getch();
 	system("cls");
 }
 
 void ellipse::print_info()
 {
+	std::cout << "Ellipse\n";
 	std::cout << "Top left point: ";
 	a.print_info();
 	std::cout << "Bottom right point: ";
