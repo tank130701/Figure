@@ -14,6 +14,7 @@
 
 
 int menu() {
+	system("cls");
 	std::cout << 
 		"\n=====Points========\n\n"
 		"1. Append point\n\n"
